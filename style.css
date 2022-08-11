@@ -1,3 +1,7 @@
+:root {
+    --glow-duration: 0.5s;
+}
+
 * {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -14,6 +18,7 @@ body {
 .rainbow-text {
     background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
     mix-blend-mode: normal;
+    background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     font-size: xx-large;
@@ -24,36 +29,83 @@ body {
     height: 40px;
     border-radius: 50%;
     display: inline-block;
+    /* transition: all 0.2s ease; */
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: var(--glow-duration);
+    margin: 5px;
 }
 
-.light:hover {
-    filter: brightness(120%);
+.light:nth-child(odd) {
+    animation-delay: var(--glow-duration);
 }
 
 .violet {
     background-color: violet;
+    animation-name: glow-violet;
 }
 
 .indigo {
     background-color: indigo;
+    animation-name: glow-indigo;
 }
 
 .blue {
     background-color: blue;
+    animation-name: glow-blue;
 }
 
 .green {
     background-color: green;
+    animation-name: glow-green;
 }
 
 .yellow {
     background-color: yellow;
+    animation-name: glow-yellow;
 }
 
 .orange {
     background-color: orange;
+    animation-name: glow-orange;
 }
 
 .red {
     background-color: red;
+    animation-name: glow-red;
+}
+
+@keyframes glow-violet {
+    from {box-shadow: none;}
+    to {box-shadow: 0px 0px 30px violet;}
+}
+
+@keyframes glow-indigo {
+    from {box-shadow: none;}
+    to {box-shadow: 0px 0px 30px 5px indigo;}
+}
+
+@keyframes glow-blue {
+    from {box-shadow: none;}
+    to {box-shadow: 0px 0px 30px blue;}
+}
+
+@keyframes glow-green {
+    from {box-shadow: none;}
+    to {box-shadow: 0px 0px 30px green;}
+}
+
+@keyframes glow-yellow {
+    from {box-shadow: none;}
+    to {box-shadow: 0px 0px 30px yellow;}
+}
+
+@keyframes glow-orange {
+    from {box-shadow: none;}
+    to {box-shadow: 0px 0px 30px orange;}
+}
+
+@keyframes glow-red {
+    from {box-shadow: none;}
+    to {box-shadow: 0px 0px 30px red;}
 }
