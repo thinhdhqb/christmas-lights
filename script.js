@@ -13,3 +13,13 @@ glowMode.addEventListener('input', () => {
     document.querySelector('.lights-container').dataset.glowMode = mode;
 })
 
+let playBtn = document.querySelector('#play-btn');
+
+playBtn.onclick = () => {
+    console.log('click');
+    playBtn.querySelector('#play').classList.toggle('hidden');
+    playBtn.querySelector('#pause').classList.toggle('hidden');
+    document.querySelectorAll('.light').forEach(e => {
+        e.classList.toggle('paused');
+    })
+}

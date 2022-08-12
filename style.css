@@ -94,3 +94,21 @@ body {
 select, option {
     color: black;
 }
+
+#play-btn {
+    background-color: black;
+}
+
+#play-btn img {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.paused {
+    animation-play-state: paused;
+}
