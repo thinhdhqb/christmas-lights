@@ -13,13 +13,29 @@
         <div class="rainbow-text">Christmas Lights</div>
     </header>
     <main>
-        <div class="light violet"></div>
-        <div class="light indigo"></div>
-        <div class="light blue"></div>
-        <div class="light green"></div>
-        <div class="light yellow"></div>
-        <div class="light orange"></div>
-        <div class="light red"></div>
+        <div data-glow-mode="alternate" class="lights-container">
+            <div style="--color: violet;" class="light violet"></div>
+            <div style="--color: indigo;" class="light indigo"></div>
+            <div style="--color: blue;" class="light blue"></div>
+            <div style="--color: green;" class="light green"></div>
+            <div style="--color: yellow;" class="light yellow"></div>
+            <div style="--color: orange;" class="light orange"></div>
+            <div style="--color: red;" class="light red"></div>
+        </div>
+        <div class="config">
+            <div>
+                <label for="cf-glow-duration">Glow duration</label>
+                <input type="range" value="0.5" min="0.1" max="3" step="0.1" name="cf-glow-speed" id="cf-glow-duration">
+                <div id="glow-speed-val">0.5s</div>
+            </div>
+            <div>
+                <label for="cf-glow-mode">Glow mode</label>
+                <select name="cf-glow-mode" id="cf-glow-mode">
+                    <option value="alternate" selected>Alternate</option>
+                    <option value="linear">Linear</option>
+                </select>
+            </div>
+        </div>
     </main>
 </body>
 </html>
