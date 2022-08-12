@@ -4,6 +4,7 @@
 
 * {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
 }
 
 body {
@@ -22,6 +23,11 @@ body {
     -webkit-background-clip: text;
     color: transparent;
     font-size: xx-large;
+    text-shadow: 0px 0px 30px white;
+}
+
+.lights-container {
+    margin: 20px;
 }
 
 .light {
@@ -29,83 +35,80 @@ body {
     height: 40px;
     border-radius: 50%;
     display: inline-block;
-    /* transition: all 0.2s ease; */
+    background-color: var(--color);
     animation-iteration-count: infinite;
-    animation-direction: alternate;
     animation-duration: var(--glow-duration);
     margin: 5px;
+    filter: brightness(120%);
 }
 
-.light:nth-child(odd) {
+/* Glow mode */
+.lights-container[data-glow-mode="alternate"] .light {
+    animation-direction: alternate;
+    animation-name: glow;
+}
+.lights-container[data-glow-mode="alternate"] .light:nth-child(odd) {
     animation-delay: var(--glow-duration);
+
 }
 
-.violet {
-    background-color: violet;
-    animation-name: glow-violet;
+.lights-container[data-glow-mode="linear"] .light {
+    animation-direction: alternate;
+    animation-name: glow;
 }
 
-.indigo {
-    background-color: indigo;
-    animation-name: glow-indigo;
+.lights-container[data-glow-mode="linear"] .light:nth-child(2) {
+    animation-delay: calc(var(--glow-duration)/4);
 }
 
-.blue {
-    background-color: blue;
-    animation-name: glow-blue;
+.lights-container[data-glow-mode="linear"] .light:nth-child(3) {
+    animation-delay: calc(2*var(--glow-duration)/4);
 }
 
-.green {
-    background-color: green;
-    animation-name: glow-green;
+.lights-container[data-glow-mode="linear"] .light:nth-child(4) {
+    animation-delay: calc(3*var(--glow-duration)/4);
 }
 
-.yellow {
-    background-color: yellow;
-    animation-name: glow-yellow;
+.lights-container[data-glow-mode="linear"] .light:nth-child(5) {
+    animation-delay: calc(4*var(--glow-duration)/4);
 }
 
-.orange {
-    background-color: orange;
-    animation-name: glow-orange;
+.lights-container[data-glow-mode="linear"] .light:nth-child(6) {
+    animation-delay: calc(5*var(--glow-duration)/4);
 }
 
-.red {
-    background-color: red;
-    animation-name: glow-red;
+.lights-container[data-glow-mode="linear"] .light:nth-child(7) {
+    animation-delay: calc(6*var(--glow-duration)/4);
 }
 
-@keyframes glow-violet {
+@keyframes glow {
     from {box-shadow: none;}
-    to {box-shadow: 0px 0px 30px violet;}
+    to {box-shadow: 0px 0px 30px var(--color);}
 }
 
-@keyframes glow-indigo {
-    from {box-shadow: none;}
-    to {box-shadow: 0px 0px 30px 5px indigo;}
+
+#glow-speed-val {
+    display: inline;
 }
 
-@keyframes glow-blue {
-    from {box-shadow: none;}
-    to {box-shadow: 0px 0px 30px blue;}
+select, option {
+    color: black;
 }
 
-@keyframes glow-green {
-    from {box-shadow: none;}
-    to {box-shadow: 0px 0px 30px green;}
+#play-btn {
+    background-color: black;
 }
 
-@keyframes glow-yellow {
-    from {box-shadow: none;}
-    to {box-shadow: 0px 0px 30px yellow;}
+#play-btn img {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
 }
 
-@keyframes glow-orange {
-    from {box-shadow: none;}
-    to {box-shadow: 0px 0px 30px orange;}
+.hidden {
+    display: none;
 }
 
-@keyframes glow-red {
-    from {box-shadow: none;}
-    to {box-shadow: 0px 0px 30px red;}
+.paused {
+    animation-play-state: paused;
 }
